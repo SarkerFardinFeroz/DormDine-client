@@ -1,0 +1,19 @@
+.menu li > :not(ul):not(.menu-title):not(details):active,
+.menu li > :not(ul):not(.menu-title):not(details).active,
+.menu li > details > summary:active {
+  color: #e20031;
+  background-color: transparent !important;
+}
+
+nav ul li a.active {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  transition: ease-in-out;
+  font-weight: 700;
+  color: #e20031;
+}
+nav ul li a:hover {
+  color: #e20031;
+  background: #0000 !important;
+  text-underline-offset: 6px;
+}
