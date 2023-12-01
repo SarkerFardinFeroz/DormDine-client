@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <div className="border-b shadow-md">
-      <nav className="navbar max-w-[1604px]   py-0  px-4 mx-auto">
+      <nav className="navbar max-w-[1604px]   py-0  px-2 mx-auto">
         <div className="drawer">
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content flex flex-col">
