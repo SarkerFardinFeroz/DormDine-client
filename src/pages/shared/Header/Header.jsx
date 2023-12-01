@@ -66,9 +66,11 @@ const Header = () => {
                         className="btn btn-ghost btn-circle  avatar"
                       >
                         <div className="w-12 rounded-full ">
-                        {/* -- */}
+                          {user.photoURL ? (
+                            <img src={user.photoURL} />
+                          ) : (
                             <img src="https://i.ibb.co/vkyjrmB/7309681.jpg" />
-                            {/* --- */}
+                          )}
                         </div>
                       </label>
                       <ul
@@ -79,7 +81,7 @@ const Header = () => {
                           Sign in as :
                         </p>
                         <p className="justify-between border px-2 py-1 hover:bg-none  rounded-xl  ">
-                        Name
+                          {user?.displayName}
                         </p>
                         <button className="p-2  duration-200 hover:bg-[#1111] hover:text-red-800 rounded-xl">
                           <NavLink className="hover:text-black p-2 ">
