@@ -1,12 +1,15 @@
+import { Helmet } from "react-helmet-async";
+import Banner from "../Banner/Banner";
 
 const Home = () => {
-    return (
-        <div>
-            this is home
-            {/* demo banner */}
-            <img className="h-[500px] w-full object-cover" src="https://i.ytimg.com/vi/jY6hxepFAwI/maxresdefault.jpg" alt="" /> 
-        </div>
-    );
+  return (
+    <div>
+      <Helmet>
+        <title>DormDine | Home</title>
+      </Helmet>
+      <Banner />
+    </div>
+  );
 };
 
 export default Home;
