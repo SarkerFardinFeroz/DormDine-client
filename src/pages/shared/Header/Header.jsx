@@ -1,7 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaBell } from "react-icons/fa";
 import "./Header.css";
+import useAuth from "../../../hooks/useAuth";
 const Header = () => {
+  const {user,logOut}=useAuth()
+  const handleSignOut = () => {
+    logOut().then().catch();
+  };
   const navLinks = (
     <>
       <li>
@@ -15,7 +20,6 @@ const Header = () => {
       </li>
     </>
   );
-  const user = true;
 
   return (
     <div className="border-b shadow-md">
@@ -75,7 +79,7 @@ const Header = () => {
                       </label>
                       <ul
                         tabIndex={0}
-                        className="mt-3 z-[1] p-2 bg-white  text-black   shadow menu menu-sm dropdown-content rounded-box w-40 space-y-2  "
+                        className="mt-3 z-[1] p-2 bg-white  text-black   shadow menu menu-sm dropdown-content rounded-box w-54 space-y-2  "
                       >
                         <p className="justify-between p-2 pb-0  hover:bg-none">
                           Sign in as :
@@ -91,7 +95,7 @@ const Header = () => {
 
                         <button
                           className="p-2 text-center rounded-xl duration-200 hover:bg-[#1111] hover:text-red-800"
-                          onClick={"handleSignOut"}
+                          onClick={handleSignOut}
                         >
                           Logout
                         </button>
