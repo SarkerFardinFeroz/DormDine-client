@@ -3,10 +3,10 @@ import { Parallax } from "react-parallax";
 const Cover = ({ img, title }) => {
   return (
     <Parallax
-      className=" mb-[130px] "
+      className="  "
       blur={{ min: -50, max: 50 }}
       bgImage={img}
-      bgImageAlt="the menu"
+      bgImageAlt="the meals"
       strength={-200}
     >
       <div className="hero h-[200px] ">

@@ -4,9 +4,11 @@ export default {
 
   theme: {
     extend: {
-      fontFamily:{Inter: "'Inter', 'sans-serif'"}
+      fontFamily: { Inter: "'Inter', 'sans-serif'" },
+      colors: {
+        "bg-primary": "#e23230",
+      },
     },
   },
   plugins: [require("daisyui")],
-
 };

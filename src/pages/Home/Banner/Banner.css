@@ -1,3 +1,8 @@
 .thumb img {
   height: 50px;
 }
+@media (max-width: 320px) {
+  .flexSm {
+    flex-direction: column;
+  }
+}
