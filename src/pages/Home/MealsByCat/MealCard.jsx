@@ -1,18 +1,14 @@
+import { Link } from "react-router-dom";
+
 const MealCard = ({ item }) => {
   console.log(item);
   const {
     _id,
     title,
     description,
-    category,
     image,
-    meal_distributor,
-    ingredients,
-    post_time,
     price,
     rating,
-    like,
-    meal_request,
   } = item;
   return (
     <div>
@@ -27,11 +23,17 @@ const MealCard = ({ item }) => {
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
           <h2 className="card-title">
-            <span className="font-medium">Price:</span> {price}$
+            <span className="font-medium">Price:</span> ${price}
+          </h2>
+          <h2 className="card-title">
+            <span className="font-medium">Rating:</span> {rating}
           </h2>
           <p>{description}</p>
           <div className="card-actions justify-center">
+            
+            <Link to={`/meal-details/${_id}`}>
             <button className="bg-[#870000] text-white py-2 px-6 rounded-xl mt-2">View Details</button>
+            </Link>
           </div>
         </div>
       </div>

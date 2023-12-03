@@ -30,7 +30,7 @@ const Register = () => {
           const userInfo = {
             name: data.name,
             email: data.email,
-            badge: `bronze`,
+            subscription: `bronze`,
           };
           axiosPublic.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {

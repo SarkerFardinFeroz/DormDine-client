@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import MealsTab from "./MealsTab";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useMeals from "../../../hooks/useMeals";
 
 const MealsByCat = () => {
