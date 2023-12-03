@@ -8,9 +8,9 @@ import useMeals from "../../../hooks/useMeals";
 const MealsByCat = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [meals, loading] = useMeals();
-  const breakfast = meals.filter((item) => item.category === "breakfast");
-  const lunch = meals.filter((item) => item.category === "lunch");
-  const dinner = meals.filter((item) => item.category === "dinner");
+  const breakfast = meals?.filter((item) => item.category === "breakfast");
+  const lunch = meals?.filter((item) => item.category === "lunch");
+  const dinner = meals?.filter((item) => item.category === "dinner");
 
   return (
     <div className="mt-1">

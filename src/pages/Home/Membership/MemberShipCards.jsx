@@ -6,7 +6,7 @@ const MemberShipCards = ({ plan }) => {
     <div className="my-6">
       <div className="card flex-row shadow-xl border">
         <figure>
-          <img className="w-[320px] h-[250px] object-cover" src={image} />
+          <img className="w-[320px] h-[250px] object-contain" src={image} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{type} Membership</h2>
