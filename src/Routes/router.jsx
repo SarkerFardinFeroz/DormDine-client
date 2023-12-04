@@ -14,6 +14,8 @@ import MyReviews from "../pages/DashBoard/MyReviews/MyReviews";
 import EditReview from "../components/EditReview/EditReview";
 import MangeUsers from "../pages/DashBoard/MangeUsers/MangeUsers";
 import AddMeal from "../pages/DashBoard/AddMeal/AddMeal";
+import AdminRoute from "./AdminRoute";
+import Meals from "../pages/Meals/Meals";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/meals",
+        element: <Meals />,
       },
       {
         path: "/meal-details/:id",
@@ -63,48 +69,80 @@ const router = createBrowserRouter([
       },
       {
         path: "my-reviews",
-        element:<MyReviews/>,
+        element: <MyReviews />,
         // element: <div>what sup</div>,
       },
       {
         path: "my-reviews/update-reviews/:id",
-        element:<EditReview/>,
+        element: <EditReview />,
         // element: <div>what sup</div>,
       },
 
       // Admin DashBoard routes
       {
         path: "adminHome",
-        element: <AdminHome />,
+        element: (
+          <AdminRoute>
+            <AdminHome />,
+          </AdminRoute>
+        ),
       },
       {
         path: "users",
-        element: <MangeUsers/>,
+        element: (
+          <AdminRoute>
+            <MangeUsers />
+          </AdminRoute>
+        ),
       },
       {
         path: "addMeal",
-        element: <AddMeal/>,
+        element: (
+          <AdminRoute>
+            <AddMeal />
+          </AdminRoute>
+        ),
       },
       {
         path: "adminHome",
-        element: <div>AdminHome</div>,
+        element: (
+          <AdminRoute>
+            <div>AdminHome</div>
+          </AdminRoute>
+        ),
       },
 
       {
         path: "all-meals",
-        element: <div>all meals</div>,
+        element: (
+          <AdminRoute>
+            <div>all meals</div>
+          </AdminRoute>
+        ),
       },
       {
         path: "all-reviews",
-        element: <div>All reviews</div>,
+        element: (
+          <AdminRoute>
+            <div>All reviews</div>
+          </AdminRoute>
+        ),
       },
       {
         path: "serve-meals",
-        element: <div>serve-meals</div>,
+        element: (
+          <AdminRoute>
+            <div>serve-meals</div>
+          </AdminRoute>
+        ),
       },
       {
         path: "upcoming-meals",
-        element: <div>upcoming meals</div>,
+        element: (
+          <AdminHome>
+            <div>upcoming meals</div>
+          </AdminHome>
+        ),
       },
     ],
   },

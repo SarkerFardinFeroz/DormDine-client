@@ -7,22 +7,22 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ member }) => {
-  const [error, setError] = useState("");
-  const [clientSecret, setClientSecret] = useState("");
-  const [transactionId, setTransactionId] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-    const [cart, refetch] = useCart();
-  const navigate = useNavigate();
+  const [transactionId, setTransactionId] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
+  const [error, setError] = useState("");
+  const [cart, refetch] = useCart();
+  const axiosSecure = useAxiosSecure();
+  // const [allUser]=
+  // TODOO PAYMENT
   let totalPrice = 0.0;
-
- if(member!=null||member!=undefined){
-totalPrice =member.price
- }else{
-    totalPrice=cart.reduce((total,item)=>total+item.price,0)
- }
+  if (member != null || member !== undefined) {
+    totalPrice = member.price;
+  } else {
+    totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  }
   useEffect(() => {
     if (totalPrice > 0) {
       axiosSecure
@@ -33,7 +33,6 @@ totalPrice =member.price
         });
     }
   }, [axiosSecure, totalPrice]);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -77,9 +76,9 @@ totalPrice =member.price
     } else {
       console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        console.log("transaction id", paymentIntent.id);
+        // console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
-        // const currentUser =allUsers.find(use.email=)
+        const currentUser=allUsers.find(use=>use.email===user?.email)
         // now save the payment in the database
         const payment = {
           email: user.email,
@@ -107,7 +106,6 @@ totalPrice =member.price
       }
     }
   };
-
   return (
     <form onSubmit={handleSubmit}>
       <CardElement
@@ -129,7 +127,7 @@ totalPrice =member.price
       <button
         className="btn btn-sm btn-primary my-4"
         type="submit"
-        disabled={!stripe || !clientSecret}
+        // disabled={!stripe || !clientSecret}
       >
         Pay
       </button>
