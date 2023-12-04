@@ -68,7 +68,7 @@ const AllReviews = () => {
                       <th>{matchingMenuItem.title}</th>
                       <td>{matchingMenuItem.like}</td>
                       <td>{matchingMenuItem.review}</td>
-                      <td className="text-center">
+                      <td className="text-center flex items-center">
                         <Link to={`/meal-details/${matchingMenuItem._id}`}>
                           <button className="btn btn-ghost btn-lg bg-[#8f4d4d]">
                             <FaEye className="text-white  "></FaEye>

@@ -22,6 +22,7 @@ import UpdateMeals from "../pages/DashBoard/UpdateMeals/UpdateMeals";
 import FiendlyDashBoard from "../pages/DashBoard/FiendlyDashBoard/FiendlyDashBoard";
 import ServeMeal from "../pages/DashBoard/ServeMeal/ServeMeal";
 import AllReviews from "../pages/DashBoard/AllReviews/AllReviews";
+import TablularUpcoming from "../pages/TablularUpcoming/TablularUpcoming";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +53,9 @@ const router = createBrowserRouter([
         path: "/meal-details/:id",
         element: <MealDetails />,
         loader: ({ params }) =>
-          fetch(`https://dorm-dine-server-five.vercel.app/meal-details/${params.id}`),
+          fetch(
+            `https://dorm-dine-server-five.vercel.app/meal-details/${params.id}`
+          ),
       },
       {
         path: "/checkout/:type",
@@ -147,7 +150,7 @@ const router = createBrowserRouter([
         path: "all-reviews",
         element: (
           <AdminRoute>
-            <AllReviews/>
+            <AllReviews />
           </AdminRoute>
         ),
       },
@@ -155,7 +158,7 @@ const router = createBrowserRouter([
         path: "serve-meals",
         element: (
           <AdminRoute>
-          <ServeMeal/>
+            <ServeMeal />
           </AdminRoute>
         ),
       },
@@ -164,7 +167,7 @@ const router = createBrowserRouter([
         path: "upcoming-meals",
         element: (
           <AdminRoute>
-            <div>upcoming meals</div>
+            <TablularUpcoming />
           </AdminRoute>
         ),
       },
