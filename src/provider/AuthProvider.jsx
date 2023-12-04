@@ -59,13 +59,15 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       setUser(currentUser);
       if (currentUser) {
-        axiosPublic.post("/jwt", loggedUser).then((res) => {
-          console.log("token response", res.data);
+        const userInfo = { email: currentUser.email };
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+            setLoading(false);
+          }
         });
       } else {
-        axiosPublic.post("/logout", loggedUser).then((res) => {
-          console.log(res.data);
-        });
+        localStorage.removeItem("access-token");
         setLoading(false);
       }
     });

@@ -5,12 +5,14 @@ import { GiHotMeal } from "react-icons/gi";
 import { NavLink, Outlet } from "react-router-dom";
 
 import useCart from "../../hooks/useCart";
+import useAdmin from "../../hooks/useAdmin";
+// import useAdmin from "../../hooks/useAdmin";
 const DashBoard = () => {
   const [cart] = useCart();
 
-  // TODO: get isAdmin value from the database
-  // const [isAdmin] = useAdmin();
-  const isAdmin = false;
+  const [isAdmin] = useAdmin();
+
+  // const isAdmin = true;
   return (
     <div className="flex">
       {/* dashboard side bar */}
@@ -33,7 +35,7 @@ const DashBoard = () => {
               <li>
                 <NavLink to="/dashboard/addMeal">
                   <FaUtensils></FaUtensils>
-                  Add Items
+                  Add Meal
                 </NavLink>
               </li>
               <li>

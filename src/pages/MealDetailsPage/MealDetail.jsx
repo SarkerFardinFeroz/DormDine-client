@@ -10,7 +10,6 @@ import Swal from "sweetalert2";
 import Reviews from "./Reviews";
 import useUser from "../../hooks/useUser";
 import useCart from "../../hooks/useCart";
-import { useState } from "react";
 
 const MealDetail = ({ meal, refetchMeal, reviews, loading, refetchReview }) => {
   const axiosSecure = useAxiosSecure();
@@ -195,7 +194,7 @@ const MealDetail = ({ meal, refetchMeal, reviews, loading, refetchReview }) => {
 
           <div className="flex justify-end items-center">
             <button className="text-3xl" onClick={handleLikeSubmit}>
-              {meal?.likesBy?.includes(user?.email) ? (
+              {meal.likesBy?.includes(user?.email) ? (
                 <IoIosHeart />
               ) : (
                 <IoIosHeartEmpty />

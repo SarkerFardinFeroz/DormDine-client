@@ -12,6 +12,8 @@ import UserHome from "../pages/DashBoard/UserHome/UserHome";
 import AdminHome from "../pages/DashBoard/AdminHome/AdminHome";
 import MyReviews from "../pages/DashBoard/MyReviews/MyReviews";
 import EditReview from "../components/EditReview/EditReview";
+import MangeUsers from "../pages/DashBoard/MangeUsers/MangeUsers";
+import AddMeal from "../pages/DashBoard/AddMeal/AddMeal";
 
 const router = createBrowserRouter([
   {
@@ -77,11 +79,11 @@ const router = createBrowserRouter([
       },
       {
         path: "users",
-        element: <div>Mange user</div>,
+        element: <MangeUsers/>,
       },
       {
         path: "addMeal",
-        element: <div>AddMeal</div>,
+        element: <AddMeal/>,
       },
       {
         path: "adminHome",

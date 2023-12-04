@@ -12,12 +12,20 @@ const MyReviews = () => {
   const userReview = allReview.filter(
     (currentReview) => currentReview?.email == user?.email
   );
+  //   const filteredMenu = meals.map((currentMeals) =>
+  //     userReview.find((meal) => meal.menuId == currentMeals._id)
+  //   );
+  //   console.log(filteredMenu);
+  //   Todo : All reviews
+  // const filteredMenuSet = new Set(userReview.map(currentMeals => meals.find(meal => meal._id === currentMeals.menuId)).filter(menu => menu !== undefined));
+  //   const filteredMenuArray = Array.from(filteredMenuSet);
 
+  //    console.log(filteredMenu);
 
   return (
     <div>
       <div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto rounded-xl">
           <table className="table  w-full">
             {/* head */}
             <thead>

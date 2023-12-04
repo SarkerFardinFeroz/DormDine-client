@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 // TODO : add payment method
 const Payment = () => {
@@ -12,14 +12,14 @@ const Payment = () => {
   const [memberShip, setMemberShip] = useState([]);
   const [memberShipData, setMemberShipData] = useState([]);
   const { type } = useParams();
-  console.log(type);
-  const axiosSecure = useAxiosSecure();
+  // console.log(type);
+  const axiosPublic = useAxiosPublic();
   useEffect(() => {
-    axiosSecure.get("/users").then((res) => setApiUsers(res.data));
-  }, [axiosSecure]);
+    axiosPublic.get("/users").then((res) => setApiUsers(res.data));
+  }, [axiosPublic]);
   useEffect(() => {
-    axiosSecure.get("/membership").then((res) => setMemberShipData(res.data));
-  }, [axiosSecure]);
+    axiosPublic.get("/membership").then((res) => setMemberShipData(res.data));
+  }, [axiosPublic]);
   useEffect(() => {
     memberShipData.map((data) => setMemberShip(data));
   }, [memberShipData]);
@@ -30,8 +30,9 @@ const Payment = () => {
   const handlePay = () => {
     axiosSecure.put(`/users/${users._id}`, userUpdateData);
   };
-// console.log(memberShip);
-const member=memberShip
+  // console.log(memberShip);
+  const member = memberShip;
+  console.log(member);
   return (
     <div>
       <h1>{type}</h1>

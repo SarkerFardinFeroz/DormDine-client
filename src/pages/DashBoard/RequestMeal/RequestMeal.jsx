@@ -5,7 +5,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 const RequestMeal = () => {
   const [cart, refetch] = useCart();
-  console.log(cart);
+//   console.log(cart);
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
   const axiosSecure = useAxiosSecure();
 
@@ -57,16 +57,17 @@ const RequestMeal = () => {
             </button>
           )}
         </div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto rounded-xl">
           <table className="table  w-full">
             {/* head */}
             <thead>
               <tr>
-                <th>#</th>
+                <th>SL</th>
                 <th>Image</th>
                 <th>Name</th>
                 <th>Price</th>
-                <th>Action</th>
+                <th>Status</th>
+                <th>Cancel</th>
               </tr>
             </thead>
             <tbody>
@@ -88,7 +89,7 @@ const RequestMeal = () => {
                   <td>{item.name}</td>
                   <td>${item.price}</td>
                   <th>
-                    <p className="">{item.mealStatus}</p>
+                {item.mealStatus}
                   </th>
 
                   <th>

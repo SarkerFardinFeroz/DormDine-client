@@ -1,4 +1,4 @@
-import { useFetcher, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 

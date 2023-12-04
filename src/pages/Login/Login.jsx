@@ -97,7 +97,7 @@ const Login = () => {
                 <input
                   className="btn btn-primary"
                   type="submit"
-                  value="Sign Up"
+                  value="Login"
                 />
               </div>
             </form>
