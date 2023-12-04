@@ -23,11 +23,13 @@ import FiendlyDashBoard from "../pages/DashBoard/FiendlyDashBoard/FiendlyDashBoa
 import ServeMeal from "../pages/DashBoard/ServeMeal/ServeMeal";
 import AllReviews from "../pages/DashBoard/AllReviews/AllReviews";
 import TablularUpcoming from "../pages/TablularUpcoming/TablularUpcoming";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
