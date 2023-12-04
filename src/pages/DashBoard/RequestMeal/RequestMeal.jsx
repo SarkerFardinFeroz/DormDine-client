@@ -3,6 +3,7 @@ import useCart from "../../../hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const RequestMeal = () => {
   const [cart, refetch] = useCart();
 //   console.log(cart);
@@ -36,6 +37,9 @@ const RequestMeal = () => {
 
   return (
     <div>
+        <Helmet>
+        <title>DormDine | Requested Meals</title>
+      </Helmet>
       <div>
         <div className="flex justify-evenly mb-8">
           <h2 className="text-4xl font-semibold">

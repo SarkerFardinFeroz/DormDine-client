@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const ServeMeal = () => {
   const axiosPublic = useAxiosPublic();
@@ -47,6 +48,9 @@ const {user} = useAuth()
 
   return (
     <div>
+       <Helmet>
+  <title>DormDine | Server Meal</title>
+</Helmet>
       <table className="table w-full">
         <thead>
           <tr>

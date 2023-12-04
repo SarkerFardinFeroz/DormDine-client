@@ -5,6 +5,7 @@ import useMeals from "../../../hooks/useMeals";
 import useAllReview from "../../../hooks/useAllReview";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AllReviews = () => {
   const [meals] = useMeals();
@@ -39,6 +40,9 @@ const AllReviews = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>DormDine | All Reviews</title>
+      </Helmet>
       <div>
         <div className="overflow-x-auto rounded-xl">
           <table className="table  w-full">

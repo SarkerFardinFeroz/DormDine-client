@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -54,10 +55,14 @@ const AddMeal = () => {
         });
       }
     }
-  };
+  }; 
   const [isUpcoming, setIsUpcoming] = useState(false);
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+   <>
+    <Helmet>
+  <title>DormDine | Add Product</title>
+</Helmet>
+     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="font-bold">
         <div className="">
           <label className="label">
@@ -204,6 +209,7 @@ const AddMeal = () => {
         </button>
       </div>
     </form>
+   </>
   );
 };
 

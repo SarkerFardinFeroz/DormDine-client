@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         path: "/meal-details/:id",
         element: <MealDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/meal-details/${params.id}`),
+          fetch(`https://dorm-dine-server-five.vercel.app/meal-details/${params.id}`),
       },
       {
         path: "/checkout/:type",
@@ -141,7 +141,7 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/meals/${params.id}`),
+          fetch(`https://dorm-dine-server-five.vercel.app/meals/${params.id}`),
       },
       {
         path: "all-reviews",

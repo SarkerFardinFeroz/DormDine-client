@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useAuth from "../../../hooks/useAuth";
 import useUser from "../../../hooks/useUser";
 
@@ -12,9 +13,12 @@ const UserHome = () => {
     (currentUser) =>
       currentUser?.email.toLowerCase() === user?.email.toLowerCase()
   );
-  console.log(filteredUser.subscription);
+//   console.log(filteredUser.subscription);
   return (
     <div>
+        <Helmet>
+        <title>DormDine | My Profile</title>
+      </Helmet>
       <h2 className="text-3xl text-center font-bold flex items-center justify-center">
         Hi,Welcome {user.displayName ? user.displayName : "back"}
         <span>

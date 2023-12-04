@@ -5,6 +5,7 @@ import Cover from "../../components/Cover/Cover";
 import { FiSearch } from "react-icons/fi";
 import Lottie from "lottie-react";
 import emptyData from "../../assets/Empthydata.json";
+import { Helmet } from "react-helmet-async";
 
 const Meals = () => {
   const [meals, loading, refetch] = useMeals();
@@ -51,6 +52,9 @@ const Meals = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>DormDine | Meals</title>
+      </Helmet>
       <div className="my-5">
         <Cover img={image} title="Meals" />
         <div className="flex items-center">

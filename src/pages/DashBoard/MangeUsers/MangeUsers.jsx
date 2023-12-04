@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MangeUsers = () => {
   const axiosSecure = useAxiosSecure();
@@ -32,6 +33,9 @@ const MangeUsers = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>DormDine | Manage Users</title>
+      </Helmet>
       <div className="flex justify-evenly my-4">
         <h2 className="text-3xl">All Users</h2>
         <h2 className="text-3xl">Total Users: {users.length}</h2>
@@ -62,13 +66,11 @@ const MangeUsers = () => {
                       onClick={() => handleMakeAdmin(user)}
                       className="py-3 px-5 rounded-xl bg-[#871900]"
                     >
-                      <FaUsers
-                        className="text-white text-2xl"
-                      ></FaUsers>
+                      <FaUsers className="text-white text-2xl"></FaUsers>
                     </button>
                   )}
                 </td>
-                <td className="flex justify-center" >
+                <td className="flex justify-center">
                   <button className="text-lg font-semibold flex items-center justify-center gap-3">
                     {user.subscription}
                     <span>

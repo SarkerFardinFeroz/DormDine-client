@@ -3,6 +3,7 @@ import useMeals from "../../../hooks/useMeals";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AllMeals = () => {
   const [meals, , refetch] = useMeals();
@@ -38,6 +39,9 @@ const AllMeals = () => {
 
   return (
     <div>
+       <Helmet>
+  <title>DormDine | All Meals</title>
+</Helmet>
       <div>
         <div className="overflow-x-auto">
           <table className="table w-full">

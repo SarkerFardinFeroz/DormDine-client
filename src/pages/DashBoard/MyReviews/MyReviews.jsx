@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import useMeals from "../../../hooks/useMeals";
 import useAllReview from "../../../hooks/useAllReview";
+import { Helmet } from "react-helmet-async";
 
 const MyReviews = () => {
   const { user } = useAuth();
@@ -13,9 +14,11 @@ const MyReviews = () => {
     (currentReview) => currentReview?.email == user?.email
   );
 
-
   return (
     <div>
+      <Helmet>
+        <title>DormDine | My Reviews</title>
+      </Helmet>
       <div>
         <div className="overflow-x-auto rounded-xl">
           <table className="table  w-full">
