@@ -2,7 +2,7 @@
 .menu li > :not(ul):not(.menu-title):not(details).active,
 .menu li > details > summary:active {
   color: #e20031;
-  background-color: transparent !important;
+  background-color: rgba(0, 0, 0, 0.742) !important;
 }
 
 nav ul li a.active {

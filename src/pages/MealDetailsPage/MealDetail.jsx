@@ -10,9 +10,9 @@ import Swal from "sweetalert2";
 import Reviews from "./Reviews";
 import useUser from "../../hooks/useUser";
 import useCart from "../../hooks/useCart";
+import { useState } from "react";
 
 const MealDetail = ({ meal, refetchMeal, reviews, loading, refetchReview }) => {
-
   const axiosSecure = useAxiosSecure();
   const [allUsers] = useUser();
   const {
@@ -30,14 +30,16 @@ const MealDetail = ({ meal, refetchMeal, reviews, loading, refetchReview }) => {
     post_time,
     review,
   } = meal;
+
   const id = _id;
   const { user } = useAuth();
-  const [,cartRefetch]=useCart()
+  const [, cartRefetch] = useCart();
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     const reviewText = e.target.elements.reviewText.value;
     axiosSecure
       .post(`/reviews`, {
+        title,
         menuId: id,
         name: user?.displayName,
         email: user?.email,
@@ -51,7 +53,7 @@ const MealDetail = ({ meal, refetchMeal, reviews, loading, refetchReview }) => {
           const updateReviews = review + 1;
           axiosSecure
             .put(`/menu/reviews/${_id}`, {
-              reviews: updateReviews,
+              review: updateReviews,
             })
             .then((res) => {
               const response = res.data;
@@ -100,8 +102,9 @@ const MealDetail = ({ meal, refetchMeal, reviews, loading, refetchReview }) => {
     });
     refetchMeal();
   };
-  
+
   const handleRequestMeal = async () => {
+    refetchMeal();
     const userType = allUsers.find(
       (currentUser) => currentUser.email === user?.email
     );
@@ -129,7 +132,6 @@ const MealDetail = ({ meal, refetchMeal, reviews, loading, refetchReview }) => {
         mealImage: image,
         price,
         like,
-        reviews,
         subscription: userType?.subscription,
         distributor_name,
         distributor_email,
@@ -137,7 +139,7 @@ const MealDetail = ({ meal, refetchMeal, reviews, loading, refetchReview }) => {
       })
       .then((res) => {
         if (res.data.insertedId) {
-          cartRefetch()
+          cartRefetch();
           Swal.fire({
             position: "top-center",
             icon: "success",

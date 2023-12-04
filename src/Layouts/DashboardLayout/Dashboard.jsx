@@ -3,17 +3,18 @@ import { FaHome, FaList, FaUsers, FaUtensils } from "react-icons/fa";
 import { MdOutlineUpcoming, MdRateReview } from "react-icons/md";
 import { GiHotMeal } from "react-icons/gi";
 import { NavLink, Outlet } from "react-router-dom";
-import useAdmin from "../hooks/useAdmin";
-import useCart from "../hooks/useCart";
+
+import useCart from "../../hooks/useCart";
 const DashBoard = () => {
   const [cart] = useCart();
 
   // TODO: get isAdmin value from the database
-  const [isAdmin] = useAdmin();
+  // const [isAdmin] = useAdmin();
+  const isAdmin = false;
   return (
     <div className="flex">
       {/* dashboard side bar */}
-      <div className="w-64 min-h-screen bg-orange-400">
+      <div className="w-64 min-h-screen bg-bg-primary">
         <ul className="menu p-4">
           {isAdmin ? (
             <>
@@ -43,7 +44,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/all-reviews">
-               <MdRateReview />
+                  <MdRateReview />
                   All Reviews
                 </NavLink>
               </li>
@@ -59,7 +60,6 @@ const DashBoard = () => {
                   Upcoming Meals
                 </NavLink>
               </li>
-              
             </>
           ) : (
             <>
@@ -83,6 +83,14 @@ const DashBoard = () => {
               </li>
             </>
           )}
+           {/* shared nav links */}
+           <div className="divider"></div>
+          <li>
+            <NavLink to="/">
+              <FaHome></FaHome>
+              Home
+            </NavLink>
+          </li>
         </ul>
       </div>
       {/* dashboard content */}

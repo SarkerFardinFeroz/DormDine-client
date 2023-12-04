@@ -3,7 +3,7 @@ import { FaBell } from "react-icons/fa";
 import "./Header.css";
 import useAuth from "../../../hooks/useAuth";
 const Header = () => {
-  const {user,logOut}=useAuth()
+  const { user, logOut } = useAuth();
   const handleSignOut = () => {
     logOut().then().catch();
   };
@@ -88,7 +88,10 @@ const Header = () => {
                           {user?.displayName}
                         </p>
                         <button className="p-2  duration-200 hover:bg-[#1111] hover:text-red-800 rounded-xl">
-                          <NavLink className="hover:text-black p-2 ">
+                          <NavLink
+                            to={"dashboard"}
+                            className="hover:text-black p-2 "
+                          >
                             Dashboard
                           </NavLink>
                         </button>

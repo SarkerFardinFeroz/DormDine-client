@@ -6,7 +6,6 @@ const useReviews = (id) => {
   const {
     data: reviews,
     isLoading: loading,
-
     refetch: refetchReview,
   } = useQuery({
     queryKey: ["reviews"],
