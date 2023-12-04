@@ -16,6 +16,7 @@ import MangeUsers from "../pages/DashBoard/MangeUsers/MangeUsers";
 import AddMeal from "../pages/DashBoard/AddMeal/AddMeal";
 import AdminRoute from "./AdminRoute";
 import Meals from "../pages/Meals/Meals";
+import UpComingMeals from "../pages/UpComingMeals/UpComingMeals";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/meals",
         element: <Meals />,
+      },
+      {
+        path: "/upcoming-meals",
+        element: <UpComingMeals />,
       },
       {
         path: "/meal-details/:id",
