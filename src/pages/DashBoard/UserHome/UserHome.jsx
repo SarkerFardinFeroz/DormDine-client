@@ -2,7 +2,10 @@
 const UserHome = () => {
     return (
         <div>
-            UserHome
+              hi welcome
+            {
+                // user.displayName? user.displayName:'back'
+            }
         </div>
     );
 };

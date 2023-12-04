@@ -2,11 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBell } from "react-icons/fa";
 import "./Header.css";
 import useAuth from "../../../hooks/useAuth";
+// import useAdmin from "../../../hooks/useAdmin";
 const Header = () => {
   const { user, logOut } = useAuth();
   const handleSignOut = () => {
     logOut().then().catch();
   };
+  // const [isAdmin] = useAdmin();
   const navLinks = (
     <>
       <li>
@@ -87,14 +89,15 @@ const Header = () => {
                         <p className="justify-between border px-2 py-1 hover:bg-none  rounded-xl  ">
                           {user?.displayName}
                         </p>
-                        <button className="p-2  duration-200 hover:bg-[#1111] hover:text-red-800 rounded-xl">
-                          <NavLink
-                            to={"dashboard"}
-                            className="hover:text-black p-2 "
-                          >
+
+                        <NavLink
+                          to={"dashboard"}
+                          className="hover:text-black p-2 "
+                        >
+                          <button className="p-2  duration-200 hover:bg-[#1111] hover:text-red-800 rounded-xl">
                             Dashboard
-                          </NavLink>
-                        </button>
+                          </button>
+                        </NavLink>
 
                         <button
                           className="p-2 text-center rounded-xl duration-200 hover:bg-[#1111] hover:text-red-800"

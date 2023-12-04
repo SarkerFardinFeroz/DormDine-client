@@ -5,6 +5,7 @@ import useCart from "../../../hooks/useCart";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useUser from "../../../hooks/useUser";
 
 const CheckoutForm = ({ member }) => {
   const stripe = useStripe();
@@ -14,6 +15,7 @@ const CheckoutForm = ({ member }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [error, setError] = useState("");
   const [cart, refetch] = useCart();
+  const [allUsers] = useUser();
   const axiosSecure = useAxiosSecure();
   // const [allUser]=
   // TODOO PAYMENT
@@ -78,16 +80,38 @@ const CheckoutForm = ({ member }) => {
       if (paymentIntent.status === "succeeded") {
         // console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
-        const currentUser=allUsers.find(use=>use.email===user?.email)
+        const currentUser = allUsers.find((use) => use.email === user?.email);
         // now save the payment in the database
+        if (currentUser) {
+          const updatedSubscription = member?.Subscriptio || "bronze";
+          const userUpdateData = { subscription: updatedSubscription };
+          try {
+            const updateUserResponse = await axiosSecure.put(
+              `/users/${currentUser._id}`,
+              userUpdateData
+            );
+            if (updateUserResponse.data) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Payment Successful",
+                ShowConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        } else {
+          console.log("user Not Found in allUsers");
+        }
         const payment = {
-          email: user.email,
+          email: user?.email,
           price: totalPrice,
           transactionId: paymentIntent.id,
           date: new Date(), // utc date convert. use moment js to
           cartIds: cart.map((item) => item._id),
           menuItemIds: cart.map((item) => item.menuId),
-          status: "pending",
         };
 
         const res = await axiosSecure.post("/payments", payment);
@@ -97,12 +121,13 @@ const CheckoutForm = ({ member }) => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Thank you for the taka paisa",
+            title: "Payment Successfull",
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/dashboard/paymentHistory");
         }
+        refetch();
+        console.log("payment", res.data);
       }
     }
   };
@@ -127,7 +152,6 @@ const CheckoutForm = ({ member }) => {
       <button
         className="btn btn-sm btn-primary my-4"
         type="submit"
-        // disabled={!stripe || !clientSecret}
       >
         Pay
       </button>

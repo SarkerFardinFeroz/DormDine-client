@@ -3,7 +3,6 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const EditReview = () => {
-  // TODO: if can make a default value on text area
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
 

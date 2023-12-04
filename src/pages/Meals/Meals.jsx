@@ -42,7 +42,7 @@ const Meals = () => {
 
   useEffect(() => {
     filterMeals();
-  }, []);
+  }, [searchText, meals, selectedCategory, selectedPriceRange]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

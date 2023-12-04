@@ -75,7 +75,6 @@ const router = createBrowserRouter([
       {
         path: "my-reviews",
         element: <MyReviews />,
-        // element: <div>what sup</div>,
       },
       {
         path: "my-reviews/update-reviews/:id",
