@@ -41,16 +41,16 @@ const MangeUsers = () => {
           {/* head */}
           <thead>
             <tr className="bg-[#871900d6]   text-white">
-              <th>SL</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Status</th>
+              <th className="text-center">SL</th>
+              <th className="text-center">Name</th>
+              <th className="text-center">Email</th>
+              <th className="text-center">Role</th>
+              <th className="text-center">Status</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <tr key={user._id}>
+              <tr className="text-center" key={user._id}>
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
@@ -68,7 +68,7 @@ const MangeUsers = () => {
                     </button>
                   )}
                 </td>
-                <td>
+                <td className="flex justify-center" >
                   <button className="text-lg font-semibold flex items-center justify-center gap-3">
                     {user.subscription}
                     <span>

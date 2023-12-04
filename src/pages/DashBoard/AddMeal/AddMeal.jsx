@@ -1,11 +1,10 @@
-import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+// import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -187,7 +186,10 @@ const AddMeal = () => {
       </div>
 
       <div className="my-8 flex gap-8">
-        <button type="submit" className="bg-bg-primary py-4  px-5 rounded-lg text-white">
+        <button
+          type="submit"
+          className="bg-bg-primary py-4  px-5 rounded-lg text-white"
+        >
           Add Meal
         </button>
 

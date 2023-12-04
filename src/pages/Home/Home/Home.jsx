@@ -15,7 +15,7 @@ const Home = () => {
       <Banner />
       <Cover img={image} title="MEALS BY CATEGORY" />
       <MealsByCat />
-      {/* TODO: make a reviews section  if have time*/}
+
       <Membership /> do payment method after add to curt
 
       <NewsLetter />

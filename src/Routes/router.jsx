@@ -17,6 +17,11 @@ import AddMeal from "../pages/DashBoard/AddMeal/AddMeal";
 import AdminRoute from "./AdminRoute";
 import Meals from "../pages/Meals/Meals";
 import UpComingMeals from "../pages/UpComingMeals/UpComingMeals";
+import AllMeals from "../pages/DashBoard/AllMeals/AllMeals";
+import UpdateMeals from "../pages/DashBoard/UpdateMeals/UpdateMeals";
+import FiendlyDashBoard from "../pages/DashBoard/FiendlyDashBoard/FiendlyDashBoard";
+import ServeMeal from "../pages/DashBoard/ServeMeal/ServeMeal";
+import AllReviews from "../pages/DashBoard/AllReviews/AllReviews";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +70,10 @@ const router = createBrowserRouter([
     children: [
       // User DashBoard  Routes
       {
+        path: "/dashboard",
+        element: <FiendlyDashBoard />,
+      },
+      {
         path: "userHome",
         element: <UserHome />,
       },
@@ -76,10 +85,10 @@ const router = createBrowserRouter([
         path: "my-reviews",
         element: <MyReviews />,
       },
+
       {
         path: "my-reviews/update-reviews/:id",
         element: <EditReview />,
-        // element: <div>what sup</div>,
       },
 
       // Admin DashBoard routes
@@ -120,15 +129,25 @@ const router = createBrowserRouter([
         path: "all-meals",
         element: (
           <AdminRoute>
-            <div>all meals</div>
+            <AllMeals />
           </AdminRoute>
         ),
+      },
+      {
+        path: "updateMeals/:id",
+        element: (
+          <AdminRoute>
+            <UpdateMeals />
+          </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/meals/${params.id}`),
       },
       {
         path: "all-reviews",
         element: (
           <AdminRoute>
-            <div>All reviews</div>
+            <AllReviews/>
           </AdminRoute>
         ),
       },
@@ -136,16 +155,17 @@ const router = createBrowserRouter([
         path: "serve-meals",
         element: (
           <AdminRoute>
-            <div>serve-meals</div>
+          <ServeMeal/>
           </AdminRoute>
         ),
       },
+
       {
         path: "upcoming-meals",
         element: (
-          <AdminHome>
+          <AdminRoute>
             <div>upcoming meals</div>
-          </AdminHome>
+          </AdminRoute>
         ),
       },
     ],

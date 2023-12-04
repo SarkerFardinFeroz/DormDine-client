@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
       photoURL: photo,
     });
   };
-  // TODO: fix the jwt issue from support
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       const userEmail = currentUser?.email || user?.email;
@@ -70,10 +70,12 @@ const AuthProvider = ({ children }) => {
         localStorage.removeItem("access-token");
         setLoading(false);
       }
+      
     });
 
     return () => {
       unsubscribe();
+      
     };
   }, [axiosPublic, user]);
   const authInfo = {

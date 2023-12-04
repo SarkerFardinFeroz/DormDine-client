@@ -17,7 +17,7 @@ const MemberShipCards = ({ plan }) => {
                 PURCHASE
               </button>
             </Link>
-            {/* TODO:complete task 5  */}
+ 
           </div>
         </div>
       </div>

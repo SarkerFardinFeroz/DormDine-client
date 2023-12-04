@@ -105,8 +105,9 @@ const MealDetail = ({ meal, refetchMeal, reviews, loading, refetchReview }) => {
   const handleRequestMeal = async () => {
     refetchMeal();
     const userType = allUsers.find(
-      (currentUser) => currentUser.email === user?.email
+      (currentUser) => currentUser?.email.toLowerCase() === user?.email.toLowerCase()
     );
+
     if (
       userType?.subscription !== "gold" &&
       userType?.subscription !== "silver" &&

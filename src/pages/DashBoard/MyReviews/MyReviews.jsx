@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import useMeals from "../../../hooks/useMeals";
 import useAllReview from "../../../hooks/useAllReview";
-// Todo: make reviews fetch in tanStack
+
 const MyReviews = () => {
   const { user } = useAuth();
   const [meals] = useMeals();
@@ -12,15 +12,7 @@ const MyReviews = () => {
   const userReview = allReview.filter(
     (currentReview) => currentReview?.email == user?.email
   );
-  //   const filteredMenu = meals.map((currentMeals) =>
-  //     userReview.find((meal) => meal.menuId == currentMeals._id)
-  //   );
-  //   console.log(filteredMenu);
-  //   Todo : All reviews
-  // const filteredMenuSet = new Set(userReview.map(currentMeals => meals.find(meal => meal._id === currentMeals.menuId)).filter(menu => menu !== undefined));
-  //   const filteredMenuArray = Array.from(filteredMenuSet);
 
-  //    console.log(filteredMenu);
 
   return (
     <div>

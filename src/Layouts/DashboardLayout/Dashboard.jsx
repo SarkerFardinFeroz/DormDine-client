@@ -6,6 +6,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 import useCart from "../../hooks/useCart";
 import useAdmin from "../../hooks/useAdmin";
+import ServeMeal from "../../pages/DashBoard/ServeMeal/ServeMeal";
 // import useAdmin from "../../hooks/useAdmin";
 const DashBoard = () => {
   const [cart] = useCart();
@@ -18,6 +19,11 @@ const DashBoard = () => {
       {/* dashboard side bar */}
       <div className="w-64 min-h-screen bg-bg-primary">
         <ul className="menu p-4">
+          <li>
+            <NavLink to="dashboard">
+            
+            </NavLink>
+          </li>
           {isAdmin ? (
             <>
               <li>
@@ -53,7 +59,7 @@ const DashBoard = () => {
               <li>
                 <NavLink to="/dashboard/serve-meals">
                   <GiHotMeal />
-                  Serve Meals
+                 Serve Meal
                 </NavLink>
               </li>
               <li>
@@ -85,8 +91,8 @@ const DashBoard = () => {
               </li>
             </>
           )}
-           {/* shared nav links */}
-           <div className="divider"></div>
+          {/* shared nav links */}
+          <div className="divider"></div>
           <li>
             <NavLink to="/">
               <FaHome></FaHome>
